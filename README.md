@@ -1,46 +1,39 @@
-This is incomplete.
-
-== BreweryDB API
+# BreweryDB API Python Wrapper
 
 This is a simple wrapper around the BreweryDB API packaged as a Python class.
 
-* Wraps all the API documented here: http://www.brewerydb.com/api/documentation
-* You will need to register for an API key: http://www.brewerydb.com/api/register
-* You can pass any of the options specified in the BreweryDB API
+* Wraps all GET requests found in the [API documentation](http://www.brewerydb.com/api/documentation) as of 10/25/2012.
+* You will need to [register for an API key](http://www.brewerydb.com/api/register).
 
 Remember: Good People Drink Good Beer!
 
-== Releases
+# Version
 
-0.0.0
-* TODO
+### 0.1 Initial commit
 
-== Examples
+# Examples
 
-You can fetch beers:
+### Fetching all beers:
 
-  response = BreweryDb.beers
+    response = BreweryDb.beers()
 
-Get a list of beers on a specific page:
+### Getting a list of beers on a specific page:
 
-  response = BreweryDb.beers({'page':10,'metadata':true) 
+    response = BreweryDb.beers({'page':10})
 
-Searching for Beers:
+### Searching for beers:
 
-  results = BreweryDb.search({'q':'stone'})
+    results = BreweryDb.search({'type':'beer','q':'stone'})
 
-Get a specific beer or brewery by id:
+### Getting a specific beer or brewery by ID:
 
-  response = BreweryDb.beer(1196)
-  response = BreweryDb.brewery(1000)
+    response = BreweryDb.beer(1196)
+    response = BreweryDb.brewery(1000)
 
-Get all the breweries around Washington DC:
+### Getting all the breweries around Washington, DC:
 
-  response = BreweryDb.breweries({'geo':1,
-                                 'lat':38.875532,
-                                 'lng':-77.007294,
-                                 'radius':30,
-                                 'units':'m'})
-
-Categories, Styles and Glassware work as well.
-
+    response = BreweryDb.breweries({'geo':1,
+                                    'lat':38.875532,
+                                    'lng':-77.007294,
+                                    'radius':30,
+                                    'units':'m'})
