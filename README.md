@@ -9,7 +9,7 @@ Remember: Good People Drink Good Beer!
 
 # Version
 
-* 0.1 Initial commit
+* 1.0 Initial release
 
 # Todo
 
