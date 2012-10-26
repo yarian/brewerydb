@@ -2,7 +2,7 @@
 
 This is a simple wrapper around the BreweryDB API packaged as a Python module.
 
-* Wraps all GET requests found in the [API documentation](http://www.brewerydb.com/api/documentation) as of 10/25/2012.
+* Wraps all GET requests found in the [API documentation](http://developer.pintlabs.com/brewerydb/api-documentation) as of 10/25/2012.
 * You will need to [register for an API key](http://www.brewerydb.com/api/register).
 
 Remember: Good People Drink Good Beer!
@@ -10,6 +10,18 @@ Remember: Good People Drink Good Beer!
 # Version
 
 * 0.1 Initial commit
+
+# Todo
+
+#### By Priority
+
+* Add automated testing
+* Constrain requests like menu to one of the valid endpoints
+
+##### Other
+
+* Find elegant way to support post requests
+* Look into making a pip package(?)
 
 # Dependencies
 
