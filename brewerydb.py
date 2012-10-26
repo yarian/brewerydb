@@ -1,21 +1,19 @@
-import requests, json
+import requests
 
-DEFAULT_BASE_URI = 'http://api.brewerydb.com/v2'
-BASE_URI = ''
-API_KEY = ''
-
-# API Default format is JSON at time of this writing
+DEFAULT_BASE_URI = "http://api.brewerydb.com/v2"
+BASE_URI = ""
+API_KEY = ""
 
 class BreweryDb:
 
     @staticmethod
     def _apply_apikey(options):
-        options.update({"key" : API_KEY})
+        options.update({"key" : BreweryDb.API_KEY})
         return options
 
     @staticmethod
     def _get(request, options):
-        return requests.get(BASE_URI + request, params=options).text
+        return requests.get(BreweryDb.BASE_URI + request, params=options).text
 
     @staticmethod
     def beers(options={}):
@@ -159,9 +157,9 @@ class BreweryDb:
     
     @staticmethod
     def set_apikey(apikey):
-        API_KEY = apikey
+        BreweryDb.API_KEY = apikey
 
     @staticmethod
     def configure(apikey, baseuri=DEFAULT_BASE_URI):
-        API_KEY = apikey
-        BASE_URI = baseuri
+        BreweryDb.API_KEY = apikey
+        BreweryDb.BASE_URI = baseuri

@@ -1,6 +1,6 @@
 # BreweryDB API Python Wrapper
 
-This is a simple wrapper around the BreweryDB API packaged as a Python class.
+This is a simple wrapper around the BreweryDB API packaged as a Python module.
 
 * Wraps all GET requests found in the [API documentation](http://www.brewerydb.com/api/documentation) as of 10/25/2012.
 * You will need to [register for an API key](http://www.brewerydb.com/api/register).
@@ -9,7 +9,16 @@ Remember: Good People Drink Good Beer!
 
 # Version
 
-### 0.1 Initial commit
+* 0.1 Initial commit
+
+# Dependencies
+
+* [Requests](http://docs.python-requests.org/en/latest/)
+
+# Usage
+
+    from brewerydb import *
+    BreweryDb.configure(apikey[, baseuri])
 
 # Examples
 
