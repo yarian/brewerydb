@@ -9,6 +9,7 @@ Remember: Good People Drink Good Beer!
 
 # Version
 
+* 1.1 Reimplemented wrapper using reflection and updated README.
 * 1.0 Initial release
 
 # Todo
@@ -16,45 +17,63 @@ Remember: Good People Drink Good Beer!
 #### By Priority
 
 * Add automated testing
-* Constrain requests like menu to one of the valid endpoints
 
 ##### Other
 
 * Find elegant way to support post requests
-* Look into making a pip package(?)
 
 # Dependencies
 
 * [Requests](http://docs.python-requests.org/en/latest/)
+
+# Notes
+
+This wrapper uses reflection to instantiate its methods at runtime.
+This was done to avoid huge amounts of code duplication. However, it
+also has the added benefit of allowing you to extend it without
+modifying it. Simply call one of:
+
+    __make_simple_endpoint_fun(name)
+    __make_singlearg_endpoint_fun(name)
+
+This will generate a new function called name that creates a new request
+to: BreweryDb base url `+ "/" + name`.
 
 # Usage
 
     from brewerydb import *
     BreweryDb.configure(apikey[, baseuri])
 
-# Examples
+It is important that configure is called before calling any of the
+other methods. Methods are created at runtime during configure.
+
+If you see an error:
+    AttributeError: class BreweryDb has no attribute X
+
+You most likely did not call BreweryDb.configure.
+
+# Code Examples
 
 ### Fetching all beers:
 
-    response = BreweryDb.beers()
+    BreweryDb.beers()
 
 ### Getting a list of beers on a specific page:
 
-    response = BreweryDb.beers({'page':10})
+    BreweryDb.beers({'page':10})
 
-### Searching for beers:
+### Searching for beers with a specific query:
 
-    results = BreweryDb.search({'type':'beer','q':'stone'})
+    BreweryDb.search({'type':'beer','q':'unibroue'})
 
 ### Getting a specific beer or brewery by ID:
 
-    response = BreweryDb.beer(1196)
-    response = BreweryDb.brewery(1000)
+    BreweryDb.beer(O3tmVI)
 
-### Getting all the breweries around Washington, DC:
+### Getting all the breweries around Seattle, WA:
 
-    response = BreweryDb.breweries({'geo':1,
-                                    'lat':38.875532,
-                                    'lng':-77.007294,
-                                    'radius':30,
-                                    'units':'m'})
+    BreweryDb.breweries({'geo':1,
+	                 'lat':47.6097,
+        		 'lng':-122.3331,
+                         'radius':30,
+                         'units':'m'})
