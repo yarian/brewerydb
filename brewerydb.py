@@ -32,7 +32,7 @@ class BreweryDb:
     @staticmethod
     def _get(request, options):
         options.update({"key" : BreweryDb.API_KEY})
-        return requests.get(BreweryDb.BASE_URI + request, params=options).text
+        return requests.get(BreweryDb.BASE_URI + request, params=options).json()
     
     @staticmethod
     def configure(apikey, baseuri=DEFAULT_BASE_URI):
