@@ -74,6 +74,6 @@ You most likely did not call BreweryDb.configure.
 
     BreweryDb.breweries({'geo':1,
                          'lat':47.6097,
-        	         'lng':-122.3331,
+                         'lng':-122.3331,
                          'radius':30,
                          'units':'m'})
