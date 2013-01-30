@@ -73,7 +73,7 @@ You most likely did not call BreweryDb.configure.
 ### Getting all the breweries around Seattle, WA:
 
     BreweryDb.breweries({'geo':1,
-	                 'lat':47.6097,
-        		 'lng':-122.3331,
+                         'lat':47.6097,
+        	         'lng':-122.3331,
                          'radius':30,
                          'units':'m'})
