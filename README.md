@@ -16,10 +16,6 @@ Remember: Good People Drink Good Beer!
 
 #### By Priority
 
-* Add automated testing
-
-##### Other
-
 * Find elegant way to support post requests
 
 # Dependencies
@@ -37,7 +33,10 @@ modifying it. Simply call one of:
     __make_singlearg_endpoint_fun(name)
 
 This will generate a new function called name that creates a new request
-to: BreweryDb base url `+ "/" + name`.
+to: BreweryDb base url `+ "/" + name`. 
+
+If your name has slashes in it, it will turn those into underscores for the method name.
+So for example, the method for the `search/upc` endpoint would be `search_upc`.
 
 # Usage
 
